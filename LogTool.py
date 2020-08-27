@@ -745,5 +745,5 @@ def start_analyzing():
     print('Execution time:' + str(time.time() - start_time))
     print('SUCCESS!!!')
 
-if __name__ == "__main__":
-    start_analyzing()
+# if __name__ == "__main__":
+#     start_analyzing()
