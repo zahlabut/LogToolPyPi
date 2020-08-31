@@ -672,7 +672,7 @@ def start_analyzing():
         statistics_dic = sorted(list(statistics_dic.items()), key=operator.itemgetter(1))
         statistics_list=[{item[0]:item[1]} for item in statistics_dic]
         total_number_of_all_logs_errors=sum([item['TotalNumberOfErrors'] for item in analyzed_logs_result if item['TotalNumberOfErrors']!=0])
-        statistics_list.insert(0,{'Total_Number_Of_'+str(string_for_grep).replace(' ','')+'s':total_number_of_all_logs_errors})
+        statistics_list.insert(0,{'Total_Number_Of_'+str(LogTool.string_for_grep).replace(' ','')+'s':total_number_of_all_logs_errors})
         LogTool.print_list(statistics_list)
         LogTool.write_list_of_dict_to_file(LogTool.log_tool_result_file,statistics_list,
                                    '\n\n\n'+'#'*20+' Statistics - Number of Errors/Warnings per Standard OSP log since: '+LogTool.time_grep+' '+'#'*20+'\n')
@@ -683,7 +683,7 @@ def start_analyzing():
         statistics_list = [[item['Log'],item['AnalyzedBlocks']] for item in not_standard_logs_unique_messages if item['AnalyzedBlocks']!=0]
         statistics_list = LogTool.sort_list_by_index(statistics_list, 1)
         total_number_of_errors=sum([i[1] for i in statistics_list])
-        statistics_list.insert(0,['Total_Number_Of_'+string_for_grep.replace(' ','')+'s',total_number_of_errors])
+        statistics_list.insert(0,['Total_Number_Of_'+LogTool.string_for_grep.replace(' ','')+'s',total_number_of_errors])
         LogTool.print_list(statistics_list)
         LogTool.append_to_file(LogTool.log_tool_result_file,'\n\n\n'+'#'*20+' Statistics - Number of Errors/Warnings per Not Standard OSP log since ever '+'#'*20)
         LogTool.write_list_to_file(LogTool.log_tool_result_file,statistics_list,False)
