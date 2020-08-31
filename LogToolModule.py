@@ -584,7 +584,7 @@ def load_conf_file(conf_file):
     LogTool.logs_to_ignore = eval(config.get("Settings", "logs_to_ignore"))
     LogTool.python_exceptions = eval(config.get("Settings", "python_exceptions"))
     LogTool.create_logtool_result_file = config.get("Settings", "create_logtool_result_file").lower()
-    LogTool.log_tool_result_file = os.path.join(os.path.abspath('..'), LogTool.log_tool_result_file)
+    LogTool.log_tool_result_file = os.path.join(os.path.abspath(''), LogTool.log_tool_result_file)
     LogTool.analyze_log_as_not_standard = eval(config.get("Settings", "analyze_log_as_not_standard"))
     LogTool.save_standard_logs_raw_data_file = eval(config.get("Settings", "save_standard_logs_raw_data_file"))
     LogTool.save_not_standard_logs_raw_data_file = eval(config.get("Settings", "save_not_standard_logs_raw_data_file"))
