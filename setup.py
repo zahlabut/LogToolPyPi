@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="LogTool", # Replace with your own username
-    version="0.0.2.3",
+    version="0.0.2.6",
     author="Arkady Shtempler",
     author_email="arkadysh@gmail.com",
     description='Extract unique Errors from logs using provided "start time" timestamp',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/zahlabut/LogToolPyPi.git",
+    url="https://github.com/zahlabut/LogToolPyPi",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
