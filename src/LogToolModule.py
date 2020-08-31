@@ -569,7 +569,7 @@ config = configparser.ConfigParser()
 if len(sys.argv) > 1:
     conf_file=sys.argv[1]
 else:
-    conf_file = 'conf.ini'
+    conf_file = '../conf.ini'
 print
 
 def load_conf_file(conf_file):

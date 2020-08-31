@@ -13,7 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/zahlabut/LogToolPyPi",
     #packages=setuptools.find_packages(),
-    packages=['LogToolModule'],
+    packages=['src'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: Apache 2.0",
