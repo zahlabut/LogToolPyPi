@@ -12,13 +12,6 @@ For that purpose you'll need to edit conf.ini file and to provide:
 Create conf.ini file basing on example provided in GitHub: https://github.com/zahlabut/LogToolPyPi/blob/master/conf.ini 
 <br>**Note:** change the configuration accordingly.
 ## Usage
-    import LogTool
+    from LogTool.LogTool import *
     load_conf_file('conf.ini') # To load cnfiguration file.
     start_analyzing() # To start analyzing log files.
-
-
-
-
-
-
-
