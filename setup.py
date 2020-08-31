@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="LogTool", # Replace with your own username
-    version="0.0.2.6",
+    version="0.0.2.7",
     author="Arkady Shtempler",
     author_email="arkadysh@gmail.com",
     description='Extract unique Errors from logs using provided "start time" timestamp',
