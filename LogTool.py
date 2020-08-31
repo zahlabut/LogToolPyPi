@@ -572,24 +572,22 @@ else:
     conf_file = 'conf.ini'
 print
 
-LogTool.print_in_color('Provided configuration file is: '+conf_file,'green')
-
-config.read(conf_file)
-LogTool.time_grep = config.get("Settings", "time_grep")
-LogTool.log_root_dir = eval(config.get("Settings", "log_root_dir"))
-LogTool.string_for_grep = config.get("Settings", "string_for_grep")
-LogTool.log_tool_result_file = config.get("Settings", "log_tool_result_file")
-LogTool.magic_words = eval(config.get("Settings", "magic_words"))
-LogTool.ignore_strings = eval(config.get("Settings", "ignore_strings"))
-LogTool.logs_to_ignore = eval(config.get("Settings", "logs_to_ignore"))
-LogTool.python_exceptions = eval(config.get("Settings", "python_exceptions"))
-LogTool.create_logtool_result_file = config.get("Settings", "create_logtool_result_file").lower()
-LogTool.log_tool_result_file = os.path.join(os.path.abspath('.'), LogTool.log_tool_result_file)
-LogTool.analyze_log_as_not_standard = eval(config.get("Settings", "analyze_log_as_not_standard"))
-LogTool.save_standard_logs_raw_data_file = eval(config.get("Settings", "save_standard_logs_raw_data_file"))
-LogTool.save_not_standard_logs_raw_data_file = eval(config.get("Settings", "save_not_standard_logs_raw_data_file"))
-
-
+def load_conf_file(conf_file):
+    LogTool.print_in_color('Provided configuration file is: '+conf_file,'green')
+    config.read(conf_file)
+    LogTool.time_grep = config.get("Settings", "time_grep")
+    LogTool.log_root_dir = eval(config.get("Settings", "log_root_dir"))
+    LogTool.string_for_grep = config.get("Settings", "string_for_grep")
+    LogTool.log_tool_result_file = config.get("Settings", "log_tool_result_file")
+    LogTool.magic_words = eval(config.get("Settings", "magic_words"))
+    LogTool.ignore_strings = eval(config.get("Settings", "ignore_strings"))
+    LogTool.logs_to_ignore = eval(config.get("Settings", "logs_to_ignore"))
+    LogTool.python_exceptions = eval(config.get("Settings", "python_exceptions"))
+    LogTool.create_logtool_result_file = config.get("Settings", "create_logtool_result_file").lower()
+    LogTool.log_tool_result_file = os.path.join(os.path.abspath('.'), LogTool.log_tool_result_file)
+    LogTool.analyze_log_as_not_standard = eval(config.get("Settings", "analyze_log_as_not_standard"))
+    LogTool.save_standard_logs_raw_data_file = eval(config.get("Settings", "save_standard_logs_raw_data_file"))
+    LogTool.save_not_standard_logs_raw_data_file = eval(config.get("Settings", "save_not_standard_logs_raw_data_file"))
 
 def start_analyzing():
     # Start the process
