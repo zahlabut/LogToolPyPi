@@ -4,7 +4,7 @@ here = pathlib.Path(__file__).parent.resolve()
 long_description = (here / 'README.md').read_text(encoding='utf-8')
 setup(
     name='LogTool',  # Required
-    version='0.0.2.8',  # Required
+    version='0.0.2.9',  # Required
     description='Extract unique Errors from logs using provided "start time" timestamp',
     long_description=long_description,
     long_description_content_type='text/markdown',
