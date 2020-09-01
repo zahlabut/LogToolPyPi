@@ -110,7 +110,7 @@ class LogTool:
                     if '.log' in name or 'messages' in name:
                         to_add=False
                         file_abs_path=os.path.join(os.path.abspath(root), name)
-                        if os.path.getsize(file_abs_path)!=0 and 'LogTool' in file_abs_path:
+                        if os.path.getsize(file_abs_path)!=0 and 'zahlabut' in file_abs_path:
                             if 'Jenkins_Job_Files' in file_abs_path:
                                 to_add = True
                             if 'Zuul_Log_Files' in file_abs_path:
@@ -278,7 +278,7 @@ class LogTool:
         block_lines=block.splitlines()
         # Check if not Jumbo block
         if len(block_lines)>5000:
-            new_block='LogTool --> this block is a Jumbo block and its size is: '+str(len(block_lines))+' lines!\n'
+            new_block='zahlabut --> this block is a Jumbo block and its size is: '+str(len(block_lines))+' lines!\n'
             for line in block_lines[0:20]:
                 new_block+=line+'\n'
             for line in block_lines[-20:-1]:
@@ -308,9 +308,9 @@ class LogTool:
             if len(line) < limit_line_size:
                 new_block += line+'\n'
             else:
-                new_block += line[0:limit_line_size] + '...<--LogTool-LINE IS TOO LONG!\n'
+                new_block += line[0:limit_line_size] + '...<--zahlabut-LINE IS TOO LONG!\n'
         if matches!=[]:
-            new_block += "\nLogTool --> "+"POTENTIAL BLOCK'S ISSUES: \n"
+            new_block += "\nzahlabut --> "+"POTENTIAL BLOCK'S ISSUES: \n"
             if len(matches)>100:
                 unique_matches = LogTool.unique_list_by_fuzzy(matches, 0.2) #To reduce execution time
             else:
@@ -331,9 +331,9 @@ class LogTool:
                 new_small_block=''
                 for line in block_lines[0:5]:
                     new_small_block+=line+'\n'
-                new_small_block+='...\n...\n...\nLogTool --> THIS BLOCK IS TOO LONG!\n'
-                if "LogTool --> POTENTIAL BLOCK'S ISSUES:" in new_block:
-                    new_small_block+=new_block[new_block.find("LogTool --> POTENTIAL BLOCK'S ISSUES:"):]
+                new_small_block+='...\n...\n...\nzahlabut --> THIS BLOCK IS TOO LONG!\n'
+                if "zahlabut --> POTENTIAL BLOCK'S ISSUES:" in new_block:
+                    new_small_block+=new_block[new_block.find("zahlabut --> POTENTIAL BLOCK'S ISSUES:"):]
                 else:
                     new_small_block+='...\n'*3
                     for line in block_lines[-5:-1]:
@@ -481,7 +481,7 @@ class LogTool:
                 self.print_in_color('Failed to get block date\n: '+block_date['Line'],'yellow')
                 print('Last known parsed date was: '+str(last_parsed_date))
                 date=last_parsed_date
-                block="*** LogTool --> this block is missing timestamp, therefore could be irrelevant to your" \
+                block="*** zahlabut --> this block is missing timestamp, therefore could be irrelevant to your" \
                       " time range! ***\n"+block
             if date>time_grep:
                 # Create list of third lines, do not analyze the same blocks again and again
@@ -610,7 +610,7 @@ def start_analyzing():
             LogTool.print_in_color(log + ' size is too big, skipped!!!', 'yellow')
             if LogTool.create_logtool_result_file != 'no':
                 LogTool.append_to_file(LogTool.log_tool_result_file,'~'*100+'\nWARNING the size of:'+obj.log+' is: '
-                            + str(log_size /(1024.0*1024.0*1024.0)) + ' [GB] LogTool is hardcoded to support log files up to 1GB, this log was skipped!\n')
+                            + str(log_size /(1024.0*1024.0*1024.0)) + ' [GB] zahlabut is hardcoded to support log files up to 1GB, this log was skipped!\n')
             continue
         Log_Analyze_Info = {}
         Log_Analyze_Info['Log']=obj.log
@@ -635,11 +635,11 @@ def start_analyzing():
                 string_for_grep=' ERROR'
             not_standard_logs_unique_messages.append(obj.extract_log_unique_greped_lines())
 
-    # Generate LogTool result file
+    # Generate zahlabut result file
     if LogTool.create_logtool_result_file!='no':
         ### Add basic description about the results into result file ###
         info='############################################# Usage Instruction ############################################\n'\
-             "This LogTool result file have some logical structure and its content is divided into the several sections.\n" \
+             "This zahlabut result file have some logical structure and its content is divided into the several sections.\n" \
              "On the bottom of this file you will be able to find the 'Table of Content'\n"\
              "that is simply pointing you into the start line of each section inside this file.\n\n"\
              "There are two kinds of sections:\n"\
@@ -667,7 +667,7 @@ def start_analyzing():
              '  "2020-04-25 07:10:30.697 27 DEBUG ceilometer.publisher.gnocchi..." \n'\
              'Not Standard - all the rest, example line does not include TIMESTAMP:\n'\
              '  "Debug: Evicting cache entry for environment "production"...\n'\
-             "Note: this is the reason for having four sections in total inside LogTool result file.\n"
+             "Note: this is the reason for having four sections in total inside zahlabut result file.\n"
         LogTool.append_to_file(LogTool.log_tool_result_file,info)
 
         ### Fill statistics section for Standard OSP logs###
