@@ -17,8 +17,8 @@ Create **"conf.ini"** file basing on example provided in GitHub: https://github.
     from LogTool.LogTool import *
     load_conf_file('conf.ini')                   # To load cnfiguration file.
     result=start_analyzing()                     # To start analyzing log files.
-    print(result['Standard_Log_Results'])        # Result dictionary for Standard Logs
-    print(result['Not_Standard_Log_Results'])    # Result dictionary for Not Standard logs
+    print(result['Standard_Log_Results'][0])     # Standard logs results (first dictionary in list)
+    print(result['Not_Standard_Log_Results'][0]) # Not Standard logs results (first dictionary in list)
 ## Created result files
 Result files will be generated according to the settings given in **"conf.ini"** file.
 
