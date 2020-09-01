@@ -742,6 +742,6 @@ def start_analyzing():
         LogTool.append_to_file(LogTool.save_not_standard_logs_raw_data_file,str(not_standard_logs_unique_messages))
     print('Execution time:' + str(time.time() - start_time))
     print('SUCCESS!!!')
-
+    return{'Standard_Log_Results':analyzed_logs_result, 'Not_Standard_Log_Results':not_standard_logs_unique_messages}
 # if __name__ == "__main__":
 #     start_analyzing()
