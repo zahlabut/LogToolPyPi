@@ -26,4 +26,4 @@ Result files will be generated according to the settings given in **"conf.ini"**
     log_tool_result_file = ResultFile.log
     save_standard_logs_raw_data_file='Standard_Logs_Output.log'
     save_not_standard_logs_raw_data_file='Not_Standard_Logs_Output.log'
-**Note:** there is detailed explanation per parameter provided in ***"conf.ini"** file.
+**Note:** there is detailed explanation per parameter provided in **"conf.ini"** file.
