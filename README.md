@@ -1,5 +1,5 @@
 
-### LogTool - is a tool that extracts all ***UNIQUE ERRORS*** form log files and provides statistics.
+### LogTool - is a tool that extracts all ***UNIQUE ERRORS*** from log files and provides statistics.
 ## General
 Let's say that you have log files located on your host under some path, for example: /var/log/containers
 and that you might want to export all Errors happened after some times in order to investigate/debug some problem
