@@ -102,6 +102,7 @@ class LogTool:
     @staticmethod
     def collect_log_paths(log_root_dir, logs_to_ignore):
         logs=[]
+
         black_list=logs_to_ignore
         for path in log_root_dir:
             for root, dirs, files in os.walk(path):
@@ -128,7 +129,8 @@ class LogTool:
             if to_add==True:
                 filtered_logs.append(log)
         if len(filtered_logs)==0:
-            LogTool.print_in_color('Failed - No log files detected in: '+str(log_root_dir),'red')
+            LogTool.print_in_color('No log files detected in: '+str(log_root_dir),'yellow')
+            LogTool.print_in_color("Maybe also that you don't have an access (run as sudo)",'yellow')
             sys.exit(1)
         return filtered_logs
 

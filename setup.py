@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="zahlabut", # Replace with your own username
-    version="0.0.2.3",
+    version="0.0.2.5",
     author="Arkady Shtempler",
     author_email="arkadysh@gmail.com",
     description='Extract unique Errors blocks from logs files by given "start time" timestamp',
