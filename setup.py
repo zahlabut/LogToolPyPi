@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='LogToolPyPi',
-    version='0.0.1',
+    version='0.0.2.2',
     packages=[''],
     url='https://github.com/zahlabut/LogToolPyPi.git',
     license='Apache 2.0',
