@@ -1,0 +1,9 @@
+Follow: https://packaging.python.org/tutorials/packaging-projects/
+
+My note:
+1) Remove all content from dist folder
+2) Run "python3 setup.py sdist" to create the new content in dist
+3) To Upload to TestPyPi
+   python3 -m twine upload --repository testpypi dist/*
+4) To upload to PyPi
+   twine upload --repository-url https://upload.pypi.org/legacy/  dist/*
