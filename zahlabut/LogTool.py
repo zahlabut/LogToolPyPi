@@ -103,7 +103,6 @@ class LogTool:
     def collect_log_paths(log_root_dir, logs_to_ignore):
         logs=[]
         black_list=logs_to_ignore
-        black_list=logs_to_ignore
         for path in log_root_dir:
             for root, dirs, files in os.walk(path):
                 for name in files:
@@ -129,7 +128,8 @@ class LogTool:
             if to_add==True:
                 filtered_logs.append(log)
         if len(filtered_logs)==0:
-            sys.exit('Failed - No log files detected in: '+log_root_dir)
+            LogTool.print_in_color('Failed - No log files detected in: '+str(log_root_dir),'red')
+            sys.exit(1)
         return filtered_logs
 
     @staticmethod
