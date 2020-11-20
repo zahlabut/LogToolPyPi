@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="zahlabut", # Replace with your own username
-    version="0.0.2.7",
+    version="0.0.2.10",
     author="Arkady Shtempler",
     author_email="arkadysh@gmail.com",
     description='Extract unique Errors blocks from logs files by given "start time" timestamp',
@@ -13,6 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/zahlabut/LogToolPyPi",
     packages=['zahlabut'],
+    include_package_data=True,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
