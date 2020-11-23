@@ -187,6 +187,7 @@ class LogTool:
         except Exception as e:
             return {'Error': str(e), 'Line': line.strip(), 'Date':None}
 
+
     @staticmethod
     def print_list(lis):
         for l in lis:
