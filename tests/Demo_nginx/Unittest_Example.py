@@ -11,7 +11,7 @@ class NginxTestCases(unittest.TestCase):
         parser = ConfigParser()
         parser.read('conf_unittest.ini')
         parser.set('Settings', 'time_grep', test_start_time)
-        parser.set('Settings', 'log_tool_result_file', 'Test_Restart_Errors.log')
+        parser.set('Settings', 'log_tool_result_file', 'Test_Restart_NGINX_Errors.log')
         with open(conf_file, 'w') as configfile:
             parser.write(configfile)
         configfile.close()

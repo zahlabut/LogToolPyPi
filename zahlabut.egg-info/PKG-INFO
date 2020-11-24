@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: zahlabut
-Version: 0.0.2.11
+Version: 0.0.2.15
 Summary: Extract unique Errors blocks from logs files by given "start time" timestamp
 Home-page: https://github.com/zahlabut/LogToolPyPi
 Author: Arkady Shtempler

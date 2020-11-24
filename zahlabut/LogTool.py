@@ -188,7 +188,6 @@ class LogTool:
         except Exception as e:
             return {'Error': str(e), 'Line': line.strip(), 'Date':None}
 
-
     @staticmethod
     def print_list(lis):
         for l in lis:
@@ -471,7 +470,8 @@ class LogTool:
             command.replace('grep','zgrep')
         self.exec_command_line_command(command)
         if os.path.exists(grep_file) and os.path.getsize(grep_file)!=0:
-            temp_data = open(grep_file, 'r').read()
+            with open(grep_file, 'r') as f:
+                temp_data = f.read()
             if '--\n' in temp_data:
                 list_of_blocks = temp_data.split('--\n')
             else:
@@ -482,7 +482,11 @@ class LogTool:
         # Try to get block date
         last_parsed_date=last_line_date
         for block in list_of_blocks:
-            block_date=self.get_line_date(block)
+            # Get block date starting from the last line in reverse order
+            for line in reversed(block.splitlines()):
+                block_date = LogTool.get_line_date(line)
+                if block_date['Error'] == None:
+                    break
             if block_date['Error']==None:
                 date=time.strptime(block_date['Date'], '%Y-%m-%d %H:%M:%S')
             else:
@@ -626,7 +630,7 @@ def start_analyzing():
         # Try to check if there is a known timestamp in last 100 lines
         last_line=obj.get_file_last_line('100')
         is_known_time_format=False
-        for line in last_line.splitlines():
+        for line in reversed(last_line.splitlines()):
             last_line_date=LogTool.get_line_date(line)
             if last_line_date['Error']==None:
                 is_known_time_format=True
