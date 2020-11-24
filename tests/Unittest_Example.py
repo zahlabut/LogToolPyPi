@@ -1,12 +1,13 @@
 from zahlabut.LogTool import *
 import os
-from ConfigParser import SafeConfigParser
+from configparser import SafeConfigParser
 from datetime import datetime
 import unittest
 
 class NginxTestCases(unittest.TestCase):
     def setUp(self):
         test_start_time = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+        parser = SafeConfigParser()
         parser.read('conf_unittest.ini')
         parser.set('Settings', 'time_grep', test_start_time)
         parser.set('Settings', 'log_root_dir', ['/var/log/nginx'])
