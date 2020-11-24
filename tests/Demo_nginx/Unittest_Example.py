@@ -24,3 +24,4 @@ class NginxTestCases(unittest.TestCase):
     def tearDown(self):
         load_conf_file(conf_file)
         result = start_analyzing()
+        LogTool.print_in_color(result, 'yellow')
