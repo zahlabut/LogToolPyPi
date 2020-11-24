@@ -19,5 +19,5 @@ class NginxTestCases(unittest.TestCase):
             os.system('nginx')
 
     def tearDown(self):
-        load_conf_file('conf_home_stack.ini')
+        load_conf_file('conf_unittest.ini')
         result = start_analyzing()
