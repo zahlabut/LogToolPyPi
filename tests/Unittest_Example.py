@@ -14,6 +14,7 @@ class NginxTestCases(unittest.TestCase):
         parser.set('Settings', 'log_tool_result_file', 'Test_Restart_Errors.log')
         with open(conf_file, 'w') as configfile:
             parser.write(configfile)
+        configfile.close()
 
     def test_restart_nginx(self):
         for x in range(0, 5):
