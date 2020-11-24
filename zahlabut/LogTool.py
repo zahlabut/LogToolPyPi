@@ -144,6 +144,7 @@ class LogTool:
     def append_to_file(log_file, msg):
         log_file = open(log_file, 'a')
         log_file.write(msg)
+        log_file.close()
 
     @staticmethod
     def get_line_date(line):
