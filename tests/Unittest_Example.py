@@ -1,6 +1,6 @@
 from zahlabut.LogTool import *
 import os
-from configparser import SafeConfigParser
+from configparser import ConfigParser
 from datetime import datetime
 import unittest
 
@@ -8,7 +8,7 @@ conf_file = 'conf_unittest.ini'
 class NginxTestCases(unittest.TestCase):
     def setUp(self):
         test_start_time = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-        parser = SafeConfigParser()
+        parser = ConfigParser()
         parser.read('conf_unittest.ini')
         parser.set('Settings', 'time_grep', test_start_time)
         parser.set('Settings', 'log_tool_result_file', 'Test_Restart_Errors.log')
