@@ -10,7 +10,6 @@ class NginxTestCases(unittest.TestCase):
         parser = SafeConfigParser()
         parser.read('conf_unittest.ini')
         parser.set('Settings', 'time_grep', test_start_time)
-        parser.set('Settings', 'log_root_dir', ['/var/log/nginx'])
         parser.set('Settings', 'log_tool_result_file', 'Test_Restart_Errors.log')
 
 
