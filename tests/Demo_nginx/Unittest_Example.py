@@ -17,7 +17,7 @@ class NginxTestCases(unittest.TestCase):
         configfile.close()
 
     def test_restart_nginx(self):
-        for x in range(0, 500):
+        for x in range(0, 5):
             # os.system('nginx stop')
             os.system('nginx')
 
