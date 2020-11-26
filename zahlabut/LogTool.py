@@ -294,6 +294,14 @@ class LogTool:
         # Normilize block
         block_lines=block.splitlines()
         block_lines=[LogTool.escape_ansi(line) for line in block_lines]
+
+        # Kombina
+        block_last_five_lines = []
+        try:
+            block_last_five_lines= block_lines[-5:]
+        except:
+            pass
+
         new_block=''
         matches = []
         for line in block_lines:
@@ -338,12 +346,15 @@ class LogTool:
                 new_small_block=''
                 for line in block_lines[0:5]:
                     new_small_block+=line+'\n'
-                new_small_block+='...\n...\n...\nzahlabut --> THIS BLOCK IS TOO LONG!\n'
+                new_small_block += '...\n'*3
+                for line in block_last_five_lines:
+                    new_small_block+=line+'\n'
+                new_small_block+='...\n...\n...\nzahlabut --> ORIGINAL BLOCK IS TOO LONG!\n'
                 if "zahlabut --> POTENTIAL BLOCK'S ISSUES:" in new_block:
                     new_small_block+=new_block[new_block.find("zahlabut --> POTENTIAL BLOCK'S ISSUES:"):]
                 else:
                     new_small_block+='...\n'*3
-                    for line in block_lines[-5:-1]:
+                    for line in block_lines[-5:]:
                         new_small_block += line + '\n'
                 new_block=new_small_block
         return new_block

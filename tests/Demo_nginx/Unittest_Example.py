@@ -17,11 +17,11 @@ class NginxTestCases(unittest.TestCase):
         configfile.close()
 
     def test_restart_nginx(self):
-        for x in range(0, 5):
+        for x in range(0, 500):
             # os.system('nginx stop')
             os.system('nginx')
 
     def tearDown(self):
         load_conf_file(conf_file)
         result = start_analyzing()
-        LogTool.print_in_color(result, 'yellow')
+        LogTool.print_in_color(result, 'green')
